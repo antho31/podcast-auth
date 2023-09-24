@@ -21,7 +21,7 @@ export default async function validateCode(
 		const { rss_feed, admin_address, code } = params;
 
 		// user has 15 min to validate
-		const limitMs = 150 * 60 * 1000;
+		const limitMs = 15 * 60 * 1000;
 		const { results: validEntries }: { results: Verification[] } = await checkVerificationCode(DB, rss_feed, admin_address, code, limitMs);
 
 		if (!validEntries.length)
