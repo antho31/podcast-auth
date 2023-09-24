@@ -1,6 +1,13 @@
-name = "api"
-main = "src/index.ts"
+name = "podcast-auth"
+main = "api/index.ts"
 compatibility_date = "2023-09-18"
+
+node_compat = true
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "PodcastAuth"
+database_id = "ce34f7c8-6993-4bd4-821e-03093736db87"
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
