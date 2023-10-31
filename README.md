@@ -7,17 +7,17 @@
  This TypeScript-based backend system provides a secure and efficient way to authenticate podcasters through email verification. It uses Cloudflare Workers for API routing, Cloudflare D1 SQL database for data storage, and Mailjet for email notifications.
 
 - [Podcast Authentication Backend](#podcast-authentication-backend)
-	- [Features](#features)
-	- [Usage example](#usage-example)
-	- [Development](#development)
-		- [Prerequisites](#prerequisites)
-		- [Setup](#setup)
-			- [Installation](#installation)
-			- [Mailjet configuration](#mailjet-configuration)
-			- [Cloudflare configuration](#cloudflare-configuration)
-		- [Start the dev server](#start-the-dev-server)
-		- [Deployment](#deployment)
-	- [License](#license)
+  - [Features](#features)
+  - [Usage example](#usage-example)
+  - [Development](#development)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+      - [Installation](#installation)
+      - [Mailjet configuration](#mailjet-configuration)
+      - [Cloudflare configuration](#cloudflare-configuration)
+    - [Start the dev server](#start-the-dev-server)
+    - [Deployment](#deployment)
+  - [License](#license)
 
 ## Features
 
@@ -31,7 +31,7 @@
 
 ```shell
 curl --request POST \
-  --url 'https://podcast-auth.anthonygourraud.workers.dev/generate-code' \
+  --url 'https://podcast-auth.[subdomain].workers.dev/generate-code' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data rss_feed=https://www.vocast.fr/desondes/rss/main \
   --data admin_address=0x64E8f7C2B4fd33f5E8470F3C6Df04974F90fc2cA
@@ -41,7 +41,7 @@ curl --request POST \
 
 ```shell
 curl --request POST \
-  --url 'https://podcast-auth.anthonygourraud.workers.dev/validate-code' \
+  --url 'https://podcast-auth.[subdomain].workers.dev/validate-code' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data rss_feed=https://www.vocast.fr/desondes/rss/main \
   --data admin_address=0x64E8f7C2B4fd33f5E8470F3C6Df04974F90fc2cA \
@@ -52,7 +52,7 @@ curl --request POST \
 
 ```shell
 curl --request GET \
-  --url 'https://podcast-auth.anthonygourraud.workers.dev/0x64E8f7C2B4fd33f5E8470F3C6Df04974F90fc2cA/validated-feeds'
+  --url 'https://podcast-auth.[subdomain].workers.dev/0x64E8f7C2B4fd33f5E8470F3C6Df04974F90fc2cA/validated-feeds'
 ```
 
 ## Development
@@ -127,7 +127,7 @@ npx wrangler secret put MJ_SENDER_MAIL
 npm run dev-api
 ```
 
-Access the API at \`<http://localhost:8787\`>.
+Access the API at <http://localhost:8787>
 
 ### Deployment
 

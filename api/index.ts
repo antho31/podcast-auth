@@ -7,7 +7,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 /**
  * @openapi
- * /generate-code:
+ * /:admin_address/validated-feeds
  * 	get:
  *  	summary: Get podcasts feeds the user has validated the ownership
  *    description: Verify all podcast feeds the user has provided (validated)
@@ -59,7 +59,7 @@ app.post('/generate-code', generateCode);
 
 /**
  * @openapi
- * /generate-code:
+ * /validate-code
  * 	post:
  *  	summary: Validate authentication
  *    description: Check if provided code is the one previously generated with /generate-code route and sent by mail
